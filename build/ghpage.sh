@@ -6,6 +6,6 @@ cp dist/index.html index.htm
 git add js css index.htm
 git commit -m "Update Doc"
 git push -u origin gh-pages
-rm -fr css js index.htm
+git checkout css js index.htm
 
 git checkout master
