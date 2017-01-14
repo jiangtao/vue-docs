@@ -1,4 +1,4 @@
-[./README.md](中文文档)
+[中文文档](./README.md)
 
 # vue docs
 
@@ -28,12 +28,12 @@ create button.md, visit `http://127.0.0.1:8080/button`
 
 ### make code and example easy
 
-view [./src/markdown/button.md](/markdown/button.md)
+view [/markdown/button.md](./src/markdown/button.md)
 
 ### more custom
 
-view [https://github.com/Jerret321/vue-marked-loader](vue-marked-loader)
+view [vue-marked-loader](https://github.com/Jerret321/vue-marked-loader)
 
 ## Thanks
 
-- [https://vuikit.github.io/vuikit-docs/](vuikit docs)
+- [vuikit docs](https://vuikit.github.io/vuikit-docs/)

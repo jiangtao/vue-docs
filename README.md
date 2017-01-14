@@ -28,7 +28,7 @@ $ npm run build:md
 
 ### 写文档更快更简单
 
-查看 [/markdown/button.md](./src/markdown/button.md)
+查看 [markdown/button.md](./src/markdown/button.md)
 
 ### 更多自定义
 
