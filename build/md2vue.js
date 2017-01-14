@@ -93,7 +93,10 @@ function mime(filename) {
 }
 
 function generateRouter(name) {
-	return `	'/${encodeURIComponent(name)}': {
+	var path
+	name = encodeURIComponent(name)
+	path = name.toLowerCase() == 'readme' ? '' : name
+	return `	'/${path}': {
 		component: (resolve) => {
 			require(['pages/${name}.vue'], resolve)
 		}
