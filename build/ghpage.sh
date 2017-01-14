@@ -1,4 +1,5 @@
 #!/bin/bash
+git checkout gh-pages
 cp -r dist/css .
 cp -r dist/js .
 cp dist/index.html index.htm
