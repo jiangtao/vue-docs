@@ -49,6 +49,11 @@ props:
     description: Prop without demo.
   propB:
     description: Prop without demo.
+slots:
+  foo:
+    description: The event description.
+  bar:
+    description: Some other event description.
 events:
   change:
     description: Emited on the intention to change the tab passing as argument the new tab index.

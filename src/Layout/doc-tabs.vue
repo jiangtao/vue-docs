@@ -6,6 +6,7 @@
         </vt-tabs-item>
         <vt-tabs-item v-if="data.slots">
             <span class="title" slot="title">Slots</span>
+            <vk-docs-slots :slots="data.slots"></vk-docs-slots>
         </vt-tabs-item>
         <vt-tabs-item v-if="data.events">
             <span class="title" slot="title">Events</span>

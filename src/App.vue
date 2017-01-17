@@ -295,6 +295,10 @@
     .title-404{
         margin:10% auto 0;
     }
+    /* overwrite vuikit css */
+    .vk-docs-events .uk-text-center{
+        display: none;
+    }
 </style>
 <template>
     <router-view></router-view>
