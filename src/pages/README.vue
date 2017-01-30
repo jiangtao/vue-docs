@@ -1,13 +1,13 @@
 <template>
     <Layout>
-        <markdown></markdown>
+        <Readmes></Readmes>
     </Layout>
 </template>
 <script>
-    import markdown from '../markdown/README.md'
+    import Readmes from '../docs/README.vue'
     export default{
         components: {
-            markdown
+            Readmes
         }
     }
 </script>

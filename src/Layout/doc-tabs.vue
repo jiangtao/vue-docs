@@ -19,12 +19,11 @@
     import { Props, Events, Slots } from 'vuikit-docs'
     export default {
         props: {
-            data: Object,
-            required: true
+            data: Object
         },
         computed: {
             exist() {
-                let {props, slots, events} = this.data
+                let {props, slots, events} = this.data || {}
                 return props || slots || events
             }
         },

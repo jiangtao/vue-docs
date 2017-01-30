@@ -37,9 +37,6 @@ module.exports = {
 		loaders: [{
 			test: /\.vue$/,
 			loader: 'vue'
-		},{
-			test: /\.md$/,
-			loader: 'vue-marked-loader'
 		}, {
 			test: /\.js$/,
 			loader: 'babel',
@@ -66,23 +63,6 @@ module.exports = {
 	babel: {
 		presets: ['es2015', 'stage-0'],
 		plugins: ['transform-vue-jsx', 'transform-runtime']
-	},
-    vueMarked: {
-		code2html: ['example', 'interface'],
-		use: function(marked, code, lang, highlight) {
-			if(lang == 'example'){
-				return `${code}<h2 id="demo">code</h2><pre class="${this.options.langPrefix}${lang}"><code>${highlight.highlightAuto(code).value}</code></pre>`
-			}
-			if(lang == 'interface'){
-				try{
-					var yaml = require('yamljs')
-					var jsonStr = JSON.stringify(yaml.parse(code), null, 2)
-					return `<vue-doc-tabs :data='${jsonStr}'></vue-doc-tabs>`
-				} catch(e){
-					return 'yaml parse error, check your interface code'
-				}
-			}
-		},
 	},
 	vue: {
 		postcss: [

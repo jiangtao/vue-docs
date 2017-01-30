@@ -1,13 +1,13 @@
 <template>
     <Layout>
-        <markdown></markdown>
+        <Buttons></Buttons>
     </Layout>
 </template>
 <script>
-    import markdown from '../markdown/button.md'
+    import Buttons from '../docs/button.vue'
     export default{
         components: {
-            markdown
+            Buttons
         }
     }
 </script>

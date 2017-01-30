@@ -36,6 +36,12 @@ $ npm run build:md
 
 由于文档中的 `interface`借助 `vuikit docs`，参数请查阅[vuikit docs](https://vuikit.github.io/vuikit-docs/)， 为了更好的体验采用`yaml`书写。
 
+## 快速发布
+
+$ npm run ghpage "commit msg"
+
+执行命令 快速发布到github `gh-pages`分支， 可供用户快速查看
+
 ## 感谢
 
 - [vuikit docs](https://vuikit.github.io/vuikit-docs/)

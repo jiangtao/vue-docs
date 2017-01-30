@@ -5,11 +5,23 @@ var path       = require('path')
 var chokidar   = require('chokidar')
 var fsmonitor  = require('fsmonitor')
 var chalk      = require('chalk')
+var execSync   = function(cmd){
+	return require('child_process').execSync(cmd, {
+		cwd: process.cwd(),
+		env: Object.assign({}, process.env)
+	})
+}
 
 var targetPath = process.argv.slice(2).pop() || 'src/markdown'
-var fullPath, routerPath, pagesPath, name, routerMaps = []
+var fullPath
+	, routerPath
+	, pagesPath
+	, name
+	, docsPath
+	, routerMaps = []
 
 fullPath   = path.resolve(path.join(__dirname, '../', targetPath))
+docsPath   = path.resolve(path.join(fullPath, '../docs')) // docs files
 routerPath = path.resolve(path.join(__dirname, '../', 'src/router/map.js'))
 pagesPath  = path.resolve(path.join(__dirname, '../', 'src/pages'))
 
@@ -46,14 +58,17 @@ function mdAdd(md) {
 	console.log('')
 	console.log(chalk.blue(`    add ${md}`))
 	name = shortname(md)
+	execSync(`node build/md2vue/index.js ${fullPath}/${md}`) // markdown to vue file
 	routerMaps.push(generateRouter(name))
-	fs.writeFileSync(routerPath, `export default {\n${routerMaps.join(',')}\n}`)
-	fs.writeFileSync(`${pagesPath}/${name}.vue`, generateVue(name), 'utf8')
+	fs.writeFileSync(routerPath, `export default {\n${routerMaps.join(',')}\n}`) // generate router file
+	fs.writeFileSync(`${pagesPath}/${name}.vue`, generateVue(name), 'utf8') // generate page entry file
 }
 
 function mdChange(md) {
 	console.log('')
 	console.log(chalk.blue(`    change ${md}`))
+	execSync(`node build/md2vue/index.js ${fullPath}/${md}`) // markdown to vue file
+
 	var name = shortname(md)
 	fs.writeFileSync(`${pagesPath}/${name}.vue`, generateVue(name), 'utf8')
 }
@@ -62,11 +77,13 @@ function mdDelete(md) {
 	console.log('')
 	console.log(chalk.blue(`    delete ${md}`))
 	name = shortname(md)
-	var index = routerMaps.indexOf(generateRouter(name))
+	var routerContent = generateRouter(name)
+	var index = routerMaps.indexOf(routerContent)
 	if(index == -1) return
-	routerMaps.splice(generateRouter(name), 1)
+	routerMaps.splice(index, 1)
 	fs.writeFileSync(routerPath, `export default {\n${routerMaps.join(',\n')}}`)
 	fs.unlinkSync(`${pagesPath}/${name}.vue`)
+	fs.unlinkSync(`${docsPath}/${name}.vue`)
 }
 
 function isMd(type) {
@@ -97,23 +114,33 @@ function generateRouter(name) {
 	name = encodeURIComponent(name)
 	path = name.toLowerCase() == 'readme' ? '' : name
 	return `	'/${path}': {
+		meta: {
+			title: '${name}'
+		},
 		component: (resolve) => {
 			require(['pages/${name}.vue'], resolve)
 		}
 	}`
 }
 
+function toHeadUpper(s){
+	return s.substr(0,1).toUpperCase() + 
+		   s.substr(1).toLowerCase().replace(/\b\-[a-z]/gi, match => match.substr(1).toUpperCase())
+}
+
 function generateVue(name) {
+	const componentName = `${toHeadUpper(name)}s`
+
 	return `<template>
     <Layout>
-        <markdown></markdown>
+        <${componentName}></${componentName}>
     </Layout>
 </template>
 <script>
-    import markdown from '../markdown/${name}.md'
+    import ${componentName} from '../docs/${name}.vue'
     export default{
         components: {
-            markdown
+            ${componentName}
         }
     }
 </script>`

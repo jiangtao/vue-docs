@@ -13,7 +13,7 @@ $ yarn add -D vt-button
 
 ```example
 <template>
-    <Buttons @click=clickMe>点我</Buttons>
+    <Buttons @click=clickMe>点我xxx</Buttons>
     <Buttons disabled>按钮1</Buttons>
     <Buttons size="small">按钮2</Buttons>
     <Buttons type="warning">按钮</Buttons>
