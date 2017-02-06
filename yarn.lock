@@ -1320,7 +1320,7 @@ dom-converter@~0.1:
   dependencies:
     utila "~0.3"
 
-dom-parser@0.1.5:
+dom-parser@^0.1.5:
   version "0.1.5"
   resolved "http://registry.npm.taobao.org/dom-parser/download/dom-parser-0.1.5.tgz#a4f6019f9a315b75d7428aaa7ccbf5bd859e16fb"
 
@@ -1477,6 +1477,10 @@ extract-text-webpack-plugin@^1.0.1:
 extsprintf@1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/extsprintf/download/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
+
+fast-diff@^1.1.1:
+  version "1.1.1"
+  resolved "http://registry.npm.taobao.org/fast-diff/download/fast-diff-1.1.1.tgz#0aea0e4e605b6a2189f0e936d4b7fbaf1b7cfd9b"
 
 fastparse@^1.0.0, fastparse@^1.1.1:
   version "1.1.1"
@@ -3052,7 +3056,7 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.5.2, rimraf@~2.5.1, rimraf@~2.5.4:
+rimraf@2, rimraf@~2.5.1, rimraf@~2.5.4:
   version "2.5.4"
   resolved "http://registry.npm.taobao.org/rimraf/download/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
@@ -3488,16 +3492,6 @@ vue-loader@^9.7.0:
     vue-style-loader "^1.0.0"
     vue-template-compiler "^2.0.5"
     vue-template-es2015-compiler "^1.2.2"
-
-vue-marked-loader@^0.1.0:
-  version "0.1.1"
-  resolved "http://registry.npm.taobao.org/vue-marked-loader/download/vue-marked-loader-0.1.1.tgz#f2de42e6c07c81155a3a190d8aecff7e69b517de"
-  dependencies:
-    dom-parser "0.1.5"
-    highlight.js "^9.9.0"
-    loader-utils "^0.2.15"
-    marked "^0.3.6"
-    rimraf "^2.5.2"
 
 vue-resource@^1.0.3:
   version "1.0.3"
