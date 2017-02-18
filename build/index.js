@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 var fs         = require('fs')
 var path       = require('path')
 var chokidar   = require('chokidar')
@@ -105,7 +104,7 @@ function isDotFile(filename){
 
 function mime(filename) {
 	if(isDotFile(filename)) return null
-	
+
 	return filename.split('.').pop()
 }
 
@@ -124,7 +123,7 @@ function generateRouter(name) {
 }
 
 function toHeadUpper(s){
-	return s.substr(0,1).toUpperCase() + 
+	return s.substr(0,1).toUpperCase() +
 		   s.substr(1).toLowerCase().replace(/\b\-[a-z]/gi, match => match.substr(1).toUpperCase())
 }
 

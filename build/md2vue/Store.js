@@ -1,6 +1,6 @@
-var fs = require('fs')
-var path = require('path')
-var rimraf = require('rimraf')
+var fs       = require('fs')
+var path     = require('path')
+var rimraf   = require('rimraf')
 var fastDiff = require('fast-diff')
 function Store(opts){
   this.dir = opts.dir || path.join(__dirname, './.store')
@@ -14,7 +14,6 @@ Store.prototype = {
   },
 
   save(filename, content) {
-  console.log(fastDiff('11111','11111'))
     try {
       if (this.writable(filename, content)) {
         fs.writeFileSync(this.filePath(filename), content, 'utf8')

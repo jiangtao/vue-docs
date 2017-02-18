@@ -57,7 +57,7 @@
     "documentation"
   ],
   "scripts": {
-    "start": "node server",
+    "start": "node server | npm run build:md",
     "build:md": "node build/index.js src/markdown",
     "build": "rm -fr dist && ./node_modules/.bin/webpack --config webpack.prod.conf.js --display-modules --display-chunks",
     "ghpage": "npm run build && sh build/ghpage.sh"

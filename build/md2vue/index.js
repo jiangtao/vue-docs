@@ -1,11 +1,10 @@
 #!/usr/bin/env node
-
 var path      = require('path')
 var marked    = require('marked')
 var highlight = require('highlight.js')
 var DomParser = require('dom-parser')
-var fs        = require('fs')
 var Store     = require('./store')
+var fs        = require('fs')
 
 var rootDir
     , store
@@ -21,24 +20,24 @@ var rootDir
 
 isFunction = item => Object.prototype.toString.call(item) === `[object Function]`
 
-
 rootDir    = process.cwd()
 rootConfig = path.resolve(path.join(rootDir, '.mdrc.js'))
 mdConfig   = fs.existsSync(rootConfig) ? rootConfig: require('./.mdrc')
-destDir    = mdConfig.dest 
-    ? path.isAbsolute(mdConfig.dest) 
-        ? mdConfig.dest 
+destDir    = mdConfig.dest
+    ? path.isAbsolute(mdConfig.dest)
+        ? mdConfig.dest
         : path.resolve(path.join(rootDir, mdConfig.dest))
     : ''
 
 targetPath = process.argv.slice(2).pop()
-targetPath = path.isAbsolute(targetPath) 
+targetPath = path.isAbsolute(targetPath)
     ? targetPath
     : path.resolve(path.join(rootDir, targetPath))
 
+console.log('dsf',targetPath)
 if(!targetPath || !fs.existsSync(targetPath)){
     console.error(`${targetPath} not exist`)
-    return 
+    return
 }
 
 /**

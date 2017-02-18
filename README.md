@@ -10,13 +10,9 @@
 
 $ npm install
 
-### 启动应用
+### 启动应用和监听文件
 
 $ npm run start
-
-### 监听markdown文件
-
-$ npm run build:md
 
 ### 写文档
 
