@@ -1,5 +1,7 @@
 [English Doc](./README-en.md)
 
+建议使用`vue-docs cli`工具:[vue-docs](https://github.com/vue-tools/vue-docs.git)
+
 # vue docs
 
 更简单快速markdown文档，生成一个基于vue的单页应用
